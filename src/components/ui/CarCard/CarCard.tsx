@@ -71,7 +71,6 @@ export const CarCard = React.memo((props: CarCardType) => {
               setEditMode={setNameEditMode}
               value={name}
               setValue={setName}
-              onSave={handleChangeNameEditMode}
             />
           ) : (
             <Typography

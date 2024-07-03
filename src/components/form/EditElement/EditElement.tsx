@@ -1,7 +1,14 @@
 import { TextField } from "@mui/material";
 import React, { useCallback } from "react";
 
-export const EditElement = React.memo((props: any) => {
+type EditElementType = {
+  isEditMode: boolean;
+  setEditMode: (value: boolean) => void;
+  value: string | number;
+  setValue: (value: any) => void;
+};
+
+export const EditElement = React.memo((props: EditElementType) => {
   const handleChangeEditMode = useCallback((): void => {
     props.setEditMode(!props.isEditMode);
   }, [props]);
