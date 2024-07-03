@@ -4,6 +4,7 @@ import { Box, Grid, Typography } from "@mui/material";
 import { CarCard } from "../CarCard/CarCard";
 import { Filter } from "../../form/Filter/Filter";
 import React from "react";
+import CarsMap from "../CapMap/CapMap";
 
 export const Cars = React.memo(() => {
   const [carsData, setCarsData] = useState<CarType[]>([]);
@@ -18,7 +19,7 @@ export const Cars = React.memo(() => {
         const data = await carsAPI.getCars();
         setCarsData(data);
       } catch (error) {
-        console.error("Ошибка при загрузке данных: ", error);
+        console.error("Error: ", error);
       }
     };
 
@@ -84,10 +85,13 @@ export const Cars = React.memo(() => {
               price={car.price}
               removeCard={removeCard}
               updateCar={updateCar}
+              longitude={0}
+              latitude={0}
             />
           </Grid>
         ))}
       </Grid>
+      <CarsMap carsData={carsData} />
     </Box>
   );
 });

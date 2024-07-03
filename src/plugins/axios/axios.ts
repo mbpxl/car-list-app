@@ -12,8 +12,8 @@ export type CarType = {
   year: number;
   price: number;
   color: string;
-  latitude?: number;
-  longitude?: number;
+  latitude: number;
+  longitude: number;
 }
 
 export const carsAPI = {
